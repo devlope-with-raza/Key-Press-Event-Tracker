@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyPress Event Tracker</title>
+    <style>
+       body{
+        height: 100vh;
+        width: 100vw;
+        font-style: italic;
+        font-family: cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-image: url("https://i.pinimg.com/736x/41/1c/89/411c89970c38ea5b7c27b7c54bbcd7f7.jpg");
+    
+          background-repeat: no-repeat;
+      background-size: cover;
+
+       }
+       div{
+        border: 10px solid rgb(58, 255, 133);
+        color: rgb(0, 0, 0);
+        background-image: url("https://i.pinimg.com/736x/68/20/f1/6820f1f51e684be2a114b80390410620.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-width: 150px;
+        min-height: 200px;
+        font-size: large;
+        font-weight: 700;
+        text-align: center;
+        justify-content:center;
+        position: absolute;
+        padding: 100px;
+    
+       }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="myInput" placeholder="Type Here....">
+        <p id="keyPress">Key Pressed :</p>
+        <p id="keyCode">Key Code :</p>
+        <p id="charCode">Char Code :</p>
+        <p id="eventType">Event Type :</p>
+    </div>
+    <script>
+        let myInput = document.getElementById("myInput");
+
+        let handelKeys = (event) => {
+            console.log(event);
+            console.log("Key Pressed :", event.key);
+            console.log("Key Code :", event.code);
+            console.log("Event Type :", event.type);
+
+            document.querySelector("#keyPress").textContent = `Key Pressed : ${event.key}`;
+            document.querySelector("#keyCode").textContent = `Key Code : ${event.code}`;
+            document.querySelector("#charCode").textContent = `Char Code : ${event.key.charCodeAt(0)}`;
+            document.querySelector("#eventType").textContent = `Event type: ${event.type}`;
+
+
+
+
+        };
+
+
+        myInput.addEventListener("keydown", handelKeys);
+
+
+    </script>
+</body>
+
+</html>
